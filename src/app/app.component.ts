@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
+import { environment } from '../environments/env';
 
 @Component({
   selector: 'app-root',
@@ -25,10 +26,10 @@ export class AppComponent implements OnInit{
   messaging = getMessaging(this.app);
 
   ngOnInit(): void {
-    getToken(this.messaging, {vapidKey: 'BKe_ShDB4q9RAO3PdPR5NNRcOfp5WpnvXlSttvkKl_Prv6xS9v00cn9Pju4IDhH8V82FvGUNBRCZVvTQNc05qnQ'}).then((currentToken) => {
+    getToken(this.messaging, {vapidKey: environment.vapidKey}).then((currentToken) => {
       if (currentToken) {
         console.log(currentToken);
-        
+        this.requestPermission()
       } else {
         console.log('No registration token available. Request permission to generate one.');
       }
