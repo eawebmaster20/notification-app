@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getMessaging, getToken } from "firebase/messaging";
-import { environment } from '../environments/env';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',

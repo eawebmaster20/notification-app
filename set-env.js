@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const targetPath = 'src/environments/env.ts';
+const targetPath = 'src/environments/environment.ts';
 
 const args = process.argv.slice(2);
 args.forEach((arg) => {
